@@ -4,7 +4,7 @@
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [org.clojure/clojurescript "0.0-3058" :scope "provided"]
                  [ring "1.2.1"]
-                 [colinkahn.flux.getters "1.1.0"]
+                 [colinkahn.flux.getters "1.1.1"]
                  [colinkahn.flux.dispatcher "1.1.0"]
                  [reagent "0.5.0"]]
   :plugins [[lein-cljsbuild "1.0.6"]

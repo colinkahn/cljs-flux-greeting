@@ -1,6 +1,6 @@
 (ns greeting.client
   (:require [reagent.core :as reagent :refer [atom]]
-            [colinkahn.flux.getters :as getters]
+            [colinkahn.flux.getters :refer [getter]]
             [colinkahn.flux.dispatcher :as dispatcher])
   (:require-macros  [colinkahn.flux.dispatcher :refer [defhandler]]))
 
@@ -13,11 +13,11 @@
                                 :waterfall {:last-inputs [{:id (.now js/Date)
                                                            :text "Hello World"}]}})))
 ;; Define getters
-(def get-salutation (getters/getter identity [:greeting :salutation]))
-(def get-subject (getters/getter identity [:greeting :subject]))
-(def get-greeting (getters/getter (fn [sal sub]
+(def get-salutation (getter [:greeting :salutation]))
+(def get-subject (getter [:greeting :subject]))
+(def get-greeting (getter (fn [sal sub]
                                     (str sal " " sub)) get-salutation get-subject))
-(def get-waterfall (getters/getter identity [:waterfall :last-inputs]))
+(def get-waterfall (getter [:waterfall :last-inputs]))
 
 ;; Define action handlers
 (defhandler :greeting [action]
@@ -36,7 +36,6 @@
       (take 10)
       (hash-map :last-inputs))))
 
-;; Define ui
 (defn input-changed [type e]
   (if (= type :salutation)
     (dispatcher/dispatch

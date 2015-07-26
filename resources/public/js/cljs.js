@@ -26910,27 +26910,27 @@ cljs.core.not_empty = function(a) {
   return cljs.core.seq(a) ? a : null;
 };
 cljs.core.nil_iter = function cljs$core$nil_iter() {
-  "undefined" === typeof cljs.core.t7804 && (cljs.core.t7804 = function(b, c) {
+  "undefined" === typeof cljs.core.t7835 && (cljs.core.t7835 = function(b, c) {
     this.nil_iter = b;
-    this.meta7805 = c;
+    this.meta7836 = c;
     this.cljs$lang$protocol_mask$partition1$ = 0;
     this.cljs$lang$protocol_mask$partition0$ = 393216;
-  }, cljs.core.t7804.prototype.hasNext = function() {
+  }, cljs.core.t7835.prototype.hasNext = function() {
     return!1;
-  }, cljs.core.t7804.prototype.next = function() {
+  }, cljs.core.t7835.prototype.next = function() {
     return Error("No such element");
-  }, cljs.core.t7804.prototype.remove = function() {
+  }, cljs.core.t7835.prototype.remove = function() {
     return Error("Unsupported operation");
-  }, cljs.core.t7804.prototype.cljs$core$IMeta$_meta$arity$1 = function(b) {
-    return this.meta7805;
-  }, cljs.core.t7804.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(b, c) {
-    return new cljs.core.t7804(this.nil_iter, c);
-  }, cljs.core.t7804.cljs$lang$type = !0, cljs.core.t7804.cljs$lang$ctorStr = "cljs.core/t7804", cljs.core.t7804.cljs$lang$ctorPrWriter = function(b, c, d) {
-    return cljs.core._write(c, "cljs.core/t7804");
-  }, cljs.core.__GT_t7804 = function(b, c) {
-    return new cljs.core.t7804(b, c);
+  }, cljs.core.t7835.prototype.cljs$core$IMeta$_meta$arity$1 = function(b) {
+    return this.meta7836;
+  }, cljs.core.t7835.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(b, c) {
+    return new cljs.core.t7835(this.nil_iter, c);
+  }, cljs.core.t7835.cljs$lang$type = !0, cljs.core.t7835.cljs$lang$ctorStr = "cljs.core/t7835", cljs.core.t7835.cljs$lang$ctorPrWriter = function(b, c, d) {
+    return cljs.core._write(c, "cljs.core/t7835");
+  }, cljs.core.__GT_t7835 = function(b, c) {
+    return new cljs.core.t7835(b, c);
   });
-  return new cljs.core.t7804(cljs$core$nil_iter, cljs.core.PersistentArrayMap.EMPTY);
+  return new cljs.core.t7835(cljs$core$nil_iter, cljs.core.PersistentArrayMap.EMPTY);
 };
 cljs.core.StringIter = function(a, b) {
   this.s = a;
@@ -39873,41 +39873,69 @@ cljs.core.PersistentHashMap.prototype.colinkahn$flux$getters$IGetter$_getter$ari
   return cljs.core.get.call(null, b, this);
 };
 colinkahn.flux.getters.getter = function() {
-  var a = function(a, b) {
-    return cljs.core.memoize.call(null, function(e) {
-      return cljs.core.apply.call(null, a, cljs.core.map.call(null, function(a) {
-        return colinkahn.flux.getters._getter.call(null, a, e);
-      }, b));
-    });
-  }, b = function(b, d) {
-    var e = null;
-    if (1 < arguments.length) {
-      for (var e = 0, f = Array(arguments.length - 1);e < f.length;) {
-        f[e] = arguments[e + 1], ++e;
+  var a = null, b = function(b) {
+    return a.call(null, cljs.core.identity, b);
+  }, c = function() {
+    var a = function(a, b) {
+      return function(a) {
+        return function(c) {
+          return cljs.core.apply.call(null, a, cljs.core.map.call(null, function(a) {
+            return function(a) {
+              return colinkahn.flux.getters._getter.call(null, a, c);
+            };
+          }(a), b));
+        };
+      }(cljs.core.memoize.call(null, a));
+    }, b = function(b, c) {
+      var e = null;
+      if (1 < arguments.length) {
+        for (var e = 0, k = Array(arguments.length - 1);e < k.length;) {
+          k[e] = arguments[e + 1], ++e;
+        }
+        e = new cljs.core.IndexedSeq(k, 0);
       }
-      e = new cljs.core.IndexedSeq(f, 0);
+      return a.call(this, b, e);
+    };
+    b.cljs$lang$maxFixedArity = 1;
+    b.cljs$lang$applyTo = function(b) {
+      var c = cljs.core.first(b);
+      b = cljs.core.rest(b);
+      return a(c, b);
+    };
+    b.cljs$core$IFn$_invoke$arity$variadic = a;
+    return b;
+  }(), a = function(a, e) {
+    switch(arguments.length) {
+      case 1:
+        return b.call(this, a);
+      default:
+        var f = null;
+        if (1 < arguments.length) {
+          for (var f = 0, g = Array(arguments.length - 1);f < g.length;) {
+            g[f] = arguments[f + 1], ++f;
+          }
+          f = new cljs.core.IndexedSeq(g, 0);
+        }
+        return c.cljs$core$IFn$_invoke$arity$variadic(a, f);
     }
-    return a.call(this, b, e);
+    throw Error("Invalid arity: " + arguments.length);
   };
-  b.cljs$lang$maxFixedArity = 1;
-  b.cljs$lang$applyTo = function(b) {
-    var d = cljs.core.first(b);
-    b = cljs.core.rest(b);
-    return a(d, b);
-  };
-  b.cljs$core$IFn$_invoke$arity$variadic = a;
-  return b;
+  a.cljs$lang$maxFixedArity = 1;
+  a.cljs$lang$applyTo = c.cljs$lang$applyTo;
+  a.cljs$core$IFn$_invoke$arity$1 = b;
+  a.cljs$core$IFn$_invoke$arity$variadic = c.cljs$core$IFn$_invoke$arity$variadic;
+  return a;
 }();
 var greeting = {client:{}};
 cljs.core.enable_console_print_BANG_.call(null);
 greeting.client.state = colinkahn.flux.dispatcher.set_state_BANG_.call(null, reagent.core.atom.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "greeting", "greeting", 462222107), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "salutation", "salutation", 1700485388), "Hello", new cljs.core.Keyword(null, "subject", "subject", -1411880451), "World"], null), new cljs.core.Keyword(null, "waterfall", "waterfall", 1758941326), new cljs.core.PersistentArrayMap(null, 
 1, [new cljs.core.Keyword(null, "last-inputs", "last-inputs", 1488838618), new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "id", "id", -1388402092), Date.now(), new cljs.core.Keyword(null, "text", "text", -1790561697), "Hello World"], null)], null)], null)], null)));
-greeting.client.get_salutation = colinkahn.flux.getters.getter.call(null, cljs.core.identity, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "greeting", "greeting", 462222107), new cljs.core.Keyword(null, "salutation", "salutation", 1700485388)], null));
-greeting.client.get_subject = colinkahn.flux.getters.getter.call(null, cljs.core.identity, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "greeting", "greeting", 462222107), new cljs.core.Keyword(null, "subject", "subject", -1411880451)], null));
+greeting.client.get_salutation = colinkahn.flux.getters.getter.call(null, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "greeting", "greeting", 462222107), new cljs.core.Keyword(null, "salutation", "salutation", 1700485388)], null));
+greeting.client.get_subject = colinkahn.flux.getters.getter.call(null, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "greeting", "greeting", 462222107), new cljs.core.Keyword(null, "subject", "subject", -1411880451)], null));
 greeting.client.get_greeting = colinkahn.flux.getters.getter.call(null, function(a, b) {
   return[cljs.core.str(a), cljs.core.str(" "), cljs.core.str(b)].join("");
 }, greeting.client.get_salutation, greeting.client.get_subject);
-greeting.client.get_waterfall = colinkahn.flux.getters.getter.call(null, cljs.core.identity, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "waterfall", "waterfall", 1758941326), new cljs.core.Keyword(null, "last-inputs", "last-inputs", 1488838618)], null));
+greeting.client.get_waterfall = colinkahn.flux.getters.getter.call(null, new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null, "waterfall", "waterfall", 1758941326), new cljs.core.Keyword(null, "last-inputs", "last-inputs", 1488838618)], null));
 colinkahn.flux.dispatcher.store_token_BANG_.call(null, new cljs.core.Keyword(null, "greeting", "greeting", 462222107), colinkahn.flux.dispatcher.register.call(null, function(a) {
   var b = function() {
     switch((new cljs.core.Keyword(null, "type", "type", 1174270348)).cljs$core$IFn$_invoke$arity$1(a)) {
@@ -39921,7 +39949,7 @@ colinkahn.flux.dispatcher.store_token_BANG_.call(null, new cljs.core.Keyword(nul
   }();
   return cljs.core.truth_(b) ? colinkahn.flux.dispatcher.update_state_BANG_.call(null, new cljs.core.Keyword(null, "greeting", "greeting", 462222107), b) : null;
 }));
-var x5367_5369 = function(a) {
+var x5329_5331 = function(a) {
   colinkahn.flux.dispatcher.wait_for.call(null, new cljs.core.Keyword(null, "greeting", "greeting", 462222107));
   return cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null, "last-inputs", "last-inputs", 1488838618)], [cljs.core.take.call(null, 10, cljs.core.conj.call(null, greeting.client.get_waterfall.call(null, cljs.core.deref.call(null, greeting.client.state)), new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "text", "text", -1790561697), greeting.client.get_greeting.call(null, cljs.core.deref.call(null, greeting.client.state)), new cljs.core.Keyword(null, "id", "id", 
   -1388402092), Date.now()], null)))]);
@@ -39940,7 +39968,7 @@ colinkahn.flux.dispatcher.store_token_BANG_.call(null, new cljs.core.Keyword(nul
     }();
     return cljs.core.truth_(c) ? colinkahn.flux.dispatcher.update_state_BANG_.call(null, new cljs.core.Keyword(null, "waterfall", "waterfall", 1758941326), c) : null;
   };
-}(x5367_5369)));
+}(x5329_5331)));
 greeting.client.input_changed = function(a, b) {
   return cljs.core._EQ_.call(null, a, new cljs.core.Keyword(null, "salutation", "salutation", 1700485388)) ? colinkahn.flux.dispatcher.dispatch.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "type", "type", 1174270348), "change-salutation", new cljs.core.Keyword(null, "value", "value", 305978217), b.target.value], null)) : colinkahn.flux.dispatcher.dispatch.call(null, new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null, "type", "type", 1174270348), 
   "change-subject", new cljs.core.Keyword(null, "value", "value", 305978217), b.target.value], null));
